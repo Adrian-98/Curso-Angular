@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Heroe } from '../interfaces/heroes.interfaces';
 
 @Pipe({
-  name: 'imagen'
+  name: 'imagen',
+  // pure: false  // si queremos que nuestro pipe se actualice siempre no solo cuando cambie el objeto
 })
 export class ImagenPipe implements PipeTransform {
 
