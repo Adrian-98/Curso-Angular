@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 
-interface Persona{
+interface Persona {
   nombre: string;
   favoritos: Favorito[];
 }
 
-interface Favorito{
+interface Favorito {
   id: number;
   nombre: string;
-} 
+}
+
+
 
 @Component({
   selector: 'app-dinamicos',
@@ -18,30 +20,32 @@ interface Favorito{
 })
 export class DinamicosComponent {
 
-  nuevojuego: string = '';
+  nuevoJuego: string = '';
 
   persona: Persona = {
-    nombre: 'Adrian',
+    nombre: 'Fernando',
     favoritos: [
-      {id: 1, nombre: 'Death Stranding'},
-      {id: 2, nombre: 'Metal Gear'},
-
+      { id: 1, nombre: 'Metal Gear' },
+      { id: 2, nombre: 'Death Stranding' },
     ]
   }
 
-  guardar(){
-    console.log('formulario posteado')
+  agregarJuego() {
+    const nuevoFavorito: Favorito = {
+      id: this.persona.favoritos.length + 1,
+      nombre: this.nuevoJuego
+    }
+
+    this.persona.favoritos.push({ ...nuevoFavorito });
+    this.nuevoJuego = '';
   }
 
-  eliminar(index: number){
+  eliminar( index: number ) {
     this.persona.favoritos.splice(index, 1);
   }
 
-  agregar(){
-    const nuevoFavorito: Favorito = {
-      id: this.persona.favoritos.length + 1,
-      nombre: this.nuevojuego,
-    }
-    this.persona.favoritos.push({...nuevoFavorito});
+
+  guardar() {
+    console.log('formulario posteado');
   }
 }

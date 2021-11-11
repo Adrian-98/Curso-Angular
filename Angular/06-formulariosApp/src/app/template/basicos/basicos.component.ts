@@ -9,40 +9,39 @@ import { NgForm } from '@angular/forms';
 })
 export class BasicosComponent implements OnInit {
 
-  @ViewChild('miFormulario') miFormulario!: NgForm; //copgemos la referencia local de miFormulario creado en html
-
+  @ViewChild('miFormulario') miFormulario!: NgForm;
 
   initForm = {
-    producto: '',
-    precio: 0.1,
-    existencias: 0
+    producto: 'RTX 4080ti',
+    precio: 10,
+    existencias: 10
   }
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
-  nombreValid(): boolean{
-    return this.miFormulario?.controls.producto?.invalid && 
-    this.miFormulario?.controls.producto?.touched;
+  nombreValido(): boolean {
+    return this.miFormulario?.controls.producto?.invalid 
+            && this.miFormulario?.controls.producto?.touched;
   }
 
-  precioValid(): boolean{
+  precioValido():boolean {
     return this.miFormulario?.controls.precio?.touched
-          && this.miFormulario?.controls.precio?.value < 0;
+            && this.miFormulario?.controls.precio?.value < 0;
   }
 
-  guardar(){
-    console.log(this.miFormulario.value);
+  // guardar( miFormulario: NgForm ) {
+  guardar() {
+    // console.log( this.miFormulario );
+    console.log('Posteo correcto');
 
-    if (this.miFormulario.controls.precio.value < 0){
-      console.log('No posteado');
-      return;
-    }
     this.miFormulario.resetForm({
+      producto: 'Algo',
       precio: 0,
-      existencias: 0,
+      existencias: 0
     });
   }
+
 }

@@ -1,30 +1,31 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 interface MenuItem {
   texto: string;
   ruta: string;
 }
 
+
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
   styles: [
     `
-      li{
-      cursor: pointer;
+      li {
+        cursor:pointer;
       }
     `
   ]
 })
-export class SidemenuComponent  {
+export class SidemenuComponent {
 
   templateMenu: MenuItem[] = [
     {
-      texto: 'Basicos',
+      texto: 'Básicos',
       ruta: './template/basicos'
     },
     {
-      texto: 'Dinamicos',
+      texto: 'Dinámicos',
       ruta: './template/dinamicos'
     },
     {
@@ -35,11 +36,11 @@ export class SidemenuComponent  {
 
   reactiveMenu: MenuItem[] = [
     {
-      texto: 'Basicos',
+      texto: 'Básicos',
       ruta: './reactive/basicos'
     },
     {
-      texto: 'Dinamicos',
+      texto: 'Dinámicos',
       ruta: './reactive/dinamicos'
     },
     {
@@ -47,5 +48,6 @@ export class SidemenuComponent  {
       ruta: './reactive/switches'
     },
   ];
-  
+
+
 }
